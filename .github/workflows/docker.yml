@@ -29,7 +29,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/mentor-details:latest .
+        run: docker build --pull -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/mentor-details:latest .
+
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/mentor-details:latest
